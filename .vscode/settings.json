@@ -1,0 +1,14 @@
+{
+    "unocss.root": "front",
+    "prettier.bracketSameLine": false,
+    "prettier.printWidth": 80,
+    "prettier.tabWidth": 4,
+    "vue.autoInsert.bracketSpacing": false,
+    "vue.autoInsert.dotValue": true,
+    "vue.autoInsert.parentheses": true,
+    "vue.inlayHints.inlineHandlerLeading": true,
+    "vue.inlayHints.missingProps": true,
+    "html.format.wrapLineLength": 120,
+    "vue.server.petiteVue.supportHtmlFile": false,
+    "tailwindCSS.emmetCompletions": true
+}

@@ -1,58 +1,120 @@
 <template>
-	<p class="text-3xl md:text-4xl lg:text-5xl">Поднимитесь на новый уровень знаний с SkyNet - вашим надежным партнером в обучении!</p>
-	<div class="flex flex-col gap-6 lg:gap-8">
-		<div class="flex items-center gap-4">
-			<p class="text-xl md:text-2xl uppercase">Наши преимущества</p>
-			<div class="rounded-full bg-[#0f1119] dark:bg-white h-0.5 w-8"></div>
+	<div class="p-4 border border-black border-dashed rounded flex flex-col gap-2">
+		<div>
+			<span class="mb-1">Цвета кнопок:</span>
+			<div class="flex gap-2">
+				<Button type="button" v-for="color in ['dark', 'blue', 'green', 'purple', 'pink', 'red', 'yellow']"
+					:color="color">кнопка</Button>
+			</div>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 text-sm md:text-base">
-			<div class="flex flex-col gap-4">
-				<p class="uppercase text-base md:text-lg">Достойная зарплата</p>
-				<p class="text-[#787878]">Найдем вам работу по новой профессии с гарантированным уровнем стартовой зарплаты.
-				</p>
+		<div>
+			<span class="mb-1">hover кнопок:</span>
+			<div class="flex gap-2">
+				<Button type="button" v-for="hover in ['dark', 'blue', 'green', 'purple', 'pink', 'red', 'yellow']"
+					:hover="hover">кнопка</Button>
 			</div>
-			<div class="flex flex-col gap-4">
-				<p class="uppercase text-base md:text-lg">Возврат денег</p>
-				<p class="text-[#787878]">Если не устроим на работу за 4 месяца — вернем деньги.</p>
+		</div>
+		<div>
+			<span class="mb-1">Размер кнопок:</span>
+			<div class="flex gap-2 items-center">
+				<Button type="button" v-for="size in ['xs', 'sm', 'md', 'lg', 'xl']" :size="size">кнопка</Button>
 			</div>
-			<div class="flex flex-col gap-4">
-				<p class="uppercase text-base md:text-lg">Железная гарантия</p>
-				<p class="text-[#787878]">Все условия зафиксировали в договоре.</p>
+		</div>
+		<div>
+			<span class="mb-1">скругление кнопок:</span>
+			<div class="flex gap-2 items-center">
+				<Button type="button" v-for="rounded in ['sm', 'md', 'lg', 'xl', 'full']" :rounded="rounded">кнопка</Button>
+			</div>
+		</div>
+		<div>
+			<span class="mb-1">вид кнопок:</span>
+			<div class="flex gap-2 items-center">
+				<Button type="button" v-for="decoration in ['outline', 'gradient', 'default']"
+					:decoration="decoration">кнопка</Button>
+			</div>
+		</div>
+		<div>
+			<span class="mb-1">тип кнопоки:</span>
+			<div class="flex gap-2 items-center">
+				<Button type="button" v-for="category in ['default', 'square']" :category="category">
+					<Icon v-if="category == 'square'" name="mdi:reload"></Icon>
+					<span v-else>кнопка</span>
+				</Button>
+			</div>
+		</div>
+		<div>
+			<span class="mb-1">иконки кнопки:</span>
+			<div class="flex gap-2 items-center">
+				<Button type="button" class="min-w-[120px]"
+					v-for="icon in ['слева', 'справа', 'слева и справа', 'без иконки']">
+					<template #prefix v-if="icon == 'слева' || icon == 'слева и справа'">
+						<Icon name="mdi:reload"></Icon>
+					</template>
+					кнопка
+					<template #suffix v-if="icon == 'справа' || icon == 'слева и справа'">
+						<Icon name="mdi:reload"></Icon>
+					</template>
+				</Button>
 			</div>
 		</div>
 	</div>
-	
-	<Warranty/>
-	<Students/>		
-	
-	<Courses :courses="courses"/>
-
-	<Reviews />	
-	<NuxtLink to="/reviews" class="flex items-center justify-end gap-2">
-		<span>Все отзывы</span>
-		<Icon name="material-symbols:arrow-right-alt-rounded" />
-	</NuxtLink>
-
-	<Score />
+	<div class="text-black dark:text-white">
+		<FormKit type="form" #default="{ value }" :actions="false">
+			<div class="flex gap-2 items-center">
+				<FormKit innerClass="w-[150px]" type="select" name="color" label="цвет кнопки">
+					<option value="dark">темный</option>
+					<option value="blue">синий</option>
+					<option value="green">зеленый</option>
+					<option value="purple">фиолетовый</option>
+					<option value="pink">розовый</option>
+					<option value="red">красный</option>
+					<option value="yellow">желтый</option>
+				</FormKit>
+				<FormKit innerClass="w-[150px]" type="select" name="size" label="Размер кнопки">
+					<option>xs</option>
+					<option>sm</option>
+					<option>md</option>
+					<option>lg</option>
+					<option>xl</option>
+				</FormKit>
+				<FormKit innerClass="w-[150px]" type="select" name="rounded" label="Скругление кнопки">
+					<option>xs</option>
+					<option>sm</option>
+					<option>md</option>
+					<option>lg</option>
+					<option>xl</option>
+					<option>default</option>
+					<option>full</option>
+				</FormKit>
+				<FormKit innerClass="w-[150px]" type="select" name="decoration" label="вид кнопки">
+					<option>default</option>
+					<option>outline</option>
+					<option>gradient</option>
+				</FormKit>
+				<FormKit innerClass="w-[150px]" type="select" name="icon" label="иконка на кнопке">
+					<option>слева</option>
+					<option>справа</option>
+					<option>слева и справа</option>
+					<option>без иконки</option>
+				</FormKit>
+				<FormKit innerClass="w-[150px]" type="select" name="category" label="тип кнопки">
+					<option>default</option>
+					<option>square</option>
+				</FormKit>
+				<Button type="button" v-bind="value">
+					<template #prefix v-if="value.icon == 'слева' || value.icon == 'слева и справа'">
+						<Icon name="mdi:reload"></Icon>
+					</template>
+					кнопка
+					<template #suffix v-if="value.icon == 'справа' || value.icon == 'слева и справа'">
+						<Icon name="mdi:reload"></Icon>
+					</template>
+				</Button>
+			</div>
+		</FormKit>
+	</div>
 </template>
-  
+
 <script setup>
-	useServerSeoMeta({
-		title: 'Главная',
-		keywords: ['Электронная платформа обучения', 'платформа обучения' , 'SkyNet'],
-		description: 'SkyNet — программирование, маркетинг, аналитика и другие профессии. Онлайн-курсы.',
-		lang: 'ru'
-	})
-
-	/* код для связи с API */
-
-	const { find } = useStrapi()
-
-	const { data:courses, error } = await useAsyncData(
-	'courses',
-	() => find('courses'),
-	{ transform: ( courses ) => courses.data.slice(0, 6) }
-	)
-
-	if ( error.value ) console.log( error )
 </script>
+
