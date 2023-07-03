@@ -43,6 +43,14 @@
 			</div>
 		</div>
 		<div>
+			<span class="mb-1">анимация загрузки:</span>
+			<div class="flex gap-2 items-center">
+				<Button type="button" :loading="true">					
+					кнопка
+				</Button>
+			</div>
+		</div>
+		<div>
 			<span class="mb-1">иконки кнопки:</span>
 			<div class="flex gap-2 items-center">
 				<Button type="button" class="min-w-[120px]"
@@ -113,8 +121,21 @@
 			</div>
 		</FormKit>
 	</div>
+	<div class="text-black dark:text-white">
+		<FormKit type="form" #default="{ value }" :actions="false">
+			<div class="flex gap-2 items-center">
+				<FormKit innerClass="w-[150px]" type="select" name="size" label="размер модалки">
+					<option>default</option>
+					<option>square</option>
+				</FormKit>
+			</div>
+			<Button @click="openModal" type="button">открыть модальноеокно</Button>
+			<Modal @close="closeModal" :isShow="isModalShow"></Modal>
+		</FormKit>
+	</div>
 </template>
 
 <script setup>
+const { closeModal, isModalShow, openModal } = useModal() 
 </script>
 
