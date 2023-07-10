@@ -125,12 +125,30 @@
 		<FormKit type="form" #default="{ value }" :actions="false">
 			<div class="flex gap-2 items-center">
 				<FormKit innerClass="w-[150px]" type="select" name="size" label="размер модалки">
-					<option>default</option>
-					<option>square</option>
+					<option>xs</option>
+					<option>sm</option>
+					<option>md</option>
+					<option>lg</option>
+					<option>xl</option>
+					<option>2xl</option>
+					<option>3xl</option>
+					<option>4xl</option>
+					<option>5xl</option>
+					<option>6xl</option>
+					<option>7xl</option>
+					
 				</FormKit>
 			</div>
 			<Button @click="openModal" type="button">открыть модальноеокно</Button>
-			<Modal @close="closeModal" :isShow="isModalShow"></Modal>
+			<Modal header-class="$reset" @close="closeModal" :isShow="isModalShow" v-bind="value">
+				<template #header>
+					Шапка моального окна
+				</template>
+				тело модального окна Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, sunt. Hic atque perspiciatis corrupti explicabo eius eligendi praesentium inventore aliquid molestiae optio, quae repudiandae veniam error sequi velit, accusantium nulla voluptatum voluptatibus eaque maiores excepturi minus! Numquam assumenda enim velit, minima quaerat ullam! Doloribus officia voluptas odit velit facere blanditiis.
+				<template #footer>
+					Подвал моального окна
+				</template>
+			</Modal>
 		</FormKit>
 	</div>
 </template>

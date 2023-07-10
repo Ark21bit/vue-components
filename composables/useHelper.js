@@ -1,7 +1,9 @@
 export const useHelper = () => {
     
     const checkDefaultClass = (str, defaultClass) => {
-        return str && str.includes('$reset') ? str.replace('$reset', '') : `${defaultClass} ${str}`
+        if (str === false) return ''   
+        if (str === String) return str.includes('$reset') ? str.replace('$reset', '') : `${defaultClass} ${str}`
+        return defaultClass
     } 
 
     return { checkDefaultClass }

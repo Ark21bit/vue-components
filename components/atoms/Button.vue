@@ -146,7 +146,7 @@ const buttonHoverClass = computed(() => {
 const defaultClass = computed(() => {
     if (noDefaultAttrsClass) return ''
 
-    const classes = 'flex items-center transition-all duration-500 ease-linear gap-1 [&_.icon]:shrink-0'
+    const classes = 'flex items-center transition-all duration-500 ease-linear gap-1 [&_.icon]:shrink-0 [&_.icon]:text-xl'
 
     if ((slots.prefix || slots.suffix)) return `${classes} justify-between`
     return `${classes} justify-center`

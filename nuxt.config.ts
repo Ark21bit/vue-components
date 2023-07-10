@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	vue:{
-		propsDestructure:true
+	vue: {
+		propsDestructure: true,
 	},
 	modules: [
 		"@nuxt/devtools",
@@ -9,8 +9,8 @@ export default defineNuxtConfig({
 		"@nuxtjs/tailwindcss",
 		"@vueuse/nuxt",
 		"nuxt-icon",
+		"@nuxtjs/supabase",
 	],
-	experimental: { },
 	components: [{ path: "~/components/atoms" }, "~/components"],
 	devtools: { enabled: true },
 });

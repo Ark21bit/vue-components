@@ -10,12 +10,13 @@
   },
   "devDependencies": {
     "@formkit/nuxt": "^0.17.4",
-    "@nuxt/devtools": "^0.6.4",
+    "@nuxt/devtools": "^0.6.7",
+    "@nuxtjs/supabase": "^0.3.8",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@types/node": "^18",
-    "@vueuse/nuxt": "^10.2.0",
-    "nuxt": "^3.6.1",
-    "nuxt-icon": "^0.4.1",
+    "@types/node": "^18.16.19",
+    "@vueuse/nuxt": "^10.2.1",
+    "nuxt": "^3.6.2",
+    "nuxt-icon": "^0.4.2",
     "typescript": "latest"
   },
   "dependencies": {
@@ -24,7 +25,7 @@
     "@formkit/i18n": "^0.17.4",
     "@formkit/icons": "^0.17.4",
     "@formkit/themes": "^0.17.4",
-    "@vueuse/components": "^10.2.0",
+    "@vueuse/components": "^10.2.1",
     "latest": "^0.2.0"
   }
 }
