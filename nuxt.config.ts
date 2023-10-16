@@ -9,7 +9,6 @@ export default defineNuxtConfig({
 		"@nuxtjs/tailwindcss",
 		"@vueuse/nuxt",
 		"nuxt-icon",
-		"@nuxtjs/supabase",
 	],
 	components: [{ path: "~/components/atoms" }, "~/components"],
 	devtools: { enabled: true },
